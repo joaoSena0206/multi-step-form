@@ -13,7 +13,7 @@ function PersonalInfo() {
 
 			<Input
 				name="Phone Number"
-				type="email"
+				type="tel"
 				placeholder="e.g. Stephen King"
 			/>
 		</div>

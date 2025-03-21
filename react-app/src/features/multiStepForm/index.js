@@ -4,6 +4,7 @@ import Card from "./components/Card";
 import StepInfo from "./components/StepInfo";
 import PersonalInfo from "./steps/PersonalInfo";
 import Input from "./components/Input";
+import Button from "./components/Button";
 
 export default MultiStepForm;
-export { StepIndicator, Card, StepInfo, PersonalInfo, Input };
+export { StepIndicator, Card, StepInfo, PersonalInfo, Input, Button };
