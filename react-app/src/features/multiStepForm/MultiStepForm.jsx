@@ -52,8 +52,15 @@ function MultiStepForm() {
 	}
 
 	function handleNextStepClick() {
-		let errors = validatePersonalInfo(personalInfo);
-		setInputErrors(errors);
+		let errors = {
+			invalid: false,
+		};
+
+		switch (step) {
+			case 1:
+				errors = validatePersonalInfo(personalInfo);
+				setInputErrors(errors);
+		}
 
 		if (!errors.invalid) {
 			dispatchStep({ type: "proceeded_step" });
