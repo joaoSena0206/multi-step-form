@@ -1,6 +1,6 @@
 import Input from "../components/Input";
 
-function PersonalInfo({ data, onInputChange }) {
+function PersonalInfo({ data, onInputChange, errors }) {
 	return (
 		<div className="mt-5 flex flex-col space-y-4">
 			<Input
@@ -8,6 +8,7 @@ function PersonalInfo({ data, onInputChange }) {
 				value={data.name}
 				name="name"
 				label="Name"
+				error={errors["name"]}
 				placeholder="e.g. Stephen King"
 			/>
 			{}
@@ -18,6 +19,7 @@ function PersonalInfo({ data, onInputChange }) {
 				name="email"
 				label="Email"
 				type="email"
+				error={errors["email"]}
 				placeholder="e.g. stephenking@lorem.com"
 			/>
 
@@ -27,6 +29,7 @@ function PersonalInfo({ data, onInputChange }) {
 				label="Phone Number"
 				name="phone"
 				type="tel"
+				error={errors["phone"]}
 				placeholder="e.g. Stephen King"
 			/>
 		</div>

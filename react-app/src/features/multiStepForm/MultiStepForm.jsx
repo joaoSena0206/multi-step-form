@@ -5,9 +5,16 @@ import { StepIndicator, Card, StepInfo, PersonalInfo, Button } from "./";
 import { steps } from "./data/data";
 import { stepReducer } from "./reducers/reducers";
 
+import validatePersonalInfo from "./utils/validatePersonalInfo";
+
 function MultiStepForm() {
 	const [step, dispatchStep] = useReducer(stepReducer, 1);
 	const [personalInfo, setPersonalInfo] = useState({
+		name: "",
+		email: "",
+		phone: "",
+	});
+	const [inputErrors, setInputErrors] = useState({
 		name: "",
 		email: "",
 		phone: "",
@@ -44,12 +51,23 @@ function MultiStepForm() {
 		setPersonalInfo({ ...personalInfo, [name]: value });
 	}
 
+	function handleNextStepClick() {
+		let errors = validatePersonalInfo(personalInfo);
+		setInputErrors(errors);
+
+		if (!errors.invalid) {
+			dispatchStep({ type: "proceeded_step" });
+			return;
+		}
+	}
+
 	switch (step) {
 		case 1:
 			renderStep = (
 				<PersonalInfo
 					data={personalInfo}
 					onInputChange={handleInputChange}
+					errors={inputErrors}
 				/>
 			);
 			break;
@@ -75,17 +93,15 @@ function MultiStepForm() {
 					className={`absolute bottom-0 p-5 bg-white w-full h-[90px] flex items-center ${btnAlignment}`}>
 					{!isStepAtStart && (
 						<Button
-							onClick={() => {
-								dispatchStep({ type: "reversed_step" });
-							}}
+							onClick={() =>
+								dispatchStep({ type: "reversed_step" })
+							}
 							text="Previous Step"
 						/>
 					)}
 					{!isStepAtEnd && (
 						<Button
-							onClick={() => {
-								dispatchStep({ type: "proceeded_step" });
-							}}
+							onClick={handleNextStepClick}
 							text="Next Step"
 						/>
 					)}
