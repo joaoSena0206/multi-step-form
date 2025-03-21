@@ -12,6 +12,11 @@ function MultiStepForm() {
 	let renderStep;
 	let isStepAtEnd = step == steps.length;
 	let isStepAtStart = step == 1;
+	let btnAlignment = isStepAtEnd
+		? "justify-start"
+		: isStepAtStart
+		? "justify-end"
+		: "justify-between";
 
 	switch (step) {
 		case 1:
@@ -36,13 +41,7 @@ function MultiStepForm() {
 				</div>
 
 				<footer
-					className={`absolute bottom-0 p-5 bg-white w-full h-[90px] flex items-center ${
-						isStepAtEnd
-							? "justify-start"
-							: isStepAtStart
-							? "justify-end"
-							: "justify-between"
-					}`}>
+					className={`absolute bottom-0 p-5 bg-white w-full h-[90px] flex items-center ${btnAlignment}`}>
 					{!isStepAtStart && (
 						<Button
 							onClick={() => {
