@@ -1,12 +1,18 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 
 import { StepIndicator, Card, StepInfo, PersonalInfo, Button } from "./";
 
 import { steps } from "./data/data";
-import stepReducer from "./reducers/stepReducer";
+import { stepReducer } from "./reducers/reducers";
 
 function MultiStepForm() {
 	const [step, dispatchStep] = useReducer(stepReducer, 1);
+	const [personalInfo, setPersonalInfo] = useState({
+		name: "",
+		email: "",
+		phone: "",
+	});
+
 	const selectedStep = steps.find((s) => s.id == step);
 
 	let renderStep;
@@ -18,9 +24,34 @@ function MultiStepForm() {
 		? "justify-end"
 		: "justify-between";
 
+	function handleInputChange(e) {
+		let name = e.target.name.toLowerCase();
+		let value = e.target.value;
+
+		switch (name) {
+			case "name":
+				value = value.replace(
+					/[0-9!@#$%^&*()_+=[{\]};:'"\\|<>/?.,`]/g,
+					""
+				);
+
+				break;
+
+			case "phone":
+				value = value.replace(/\D/g, "");
+		}
+
+		setPersonalInfo({ ...personalInfo, [name]: value });
+	}
+
 	switch (step) {
 		case 1:
-			renderStep = <PersonalInfo />;
+			renderStep = (
+				<PersonalInfo
+					data={personalInfo}
+					onInputChange={handleInputChange}
+				/>
+			);
 			break;
 	}
 

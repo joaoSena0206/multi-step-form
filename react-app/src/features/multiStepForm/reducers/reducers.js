@@ -8,4 +8,4 @@ function stepReducer(state, action) {
 	}
 }
 
-export default stepReducer;
+export { stepReducer };
