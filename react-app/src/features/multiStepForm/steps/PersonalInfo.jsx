@@ -11,7 +11,6 @@ function PersonalInfo({ data, onInputChange, errors }) {
 				error={errors["name"]}
 				placeholder="e.g. Stephen King"
 			/>
-			{}
 
 			<Input
 				onChange={onInputChange}

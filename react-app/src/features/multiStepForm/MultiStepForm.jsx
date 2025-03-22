@@ -19,7 +19,6 @@ function MultiStepForm() {
 		email: "",
 		phone: "",
 	});
-
 	const selectedStep = steps.find((s) => s.id == step);
 
 	let renderStep;
@@ -30,6 +29,18 @@ function MultiStepForm() {
 		: isStepAtStart
 		? "justify-end"
 		: "justify-between";
+
+	switch (step) {
+		case 1:
+			renderStep = (
+				<PersonalInfo
+					data={personalInfo}
+					onInputChange={handleInputChange}
+					errors={inputErrors}
+				/>
+			);
+			break;
+	}
 
 	function handleInputChange(e) {
 		let name = e.target.name.toLowerCase();
@@ -68,18 +79,6 @@ function MultiStepForm() {
 			dispatchStep({ type: "proceeded_step" });
 			return;
 		}
-	}
-
-	switch (step) {
-		case 1:
-			renderStep = (
-				<PersonalInfo
-					data={personalInfo}
-					onInputChange={handleInputChange}
-					errors={inputErrors}
-				/>
-			);
-			break;
 	}
 
 	return (
