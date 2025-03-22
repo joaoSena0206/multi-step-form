@@ -22,7 +22,18 @@ function PlanSelection({ plans, selectedPlan, dispatch }) {
 				))}
 			</ul>
 
-			<PlanDurationToggle />
+			<PlanDurationToggle
+				selectedDuration={selectedPlan.duration}
+				onToggle={() =>
+					dispatch({
+						type: "toggled_duration",
+						duration:
+							selectedPlan.duration == "monthly"
+								? "yearly"
+								: "monthly",
+					})
+				}
+			/>
 		</div>
 	);
 }

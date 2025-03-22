@@ -6,7 +6,7 @@ function planReducer(state, action) {
 				id: action.planId,
 			};
 
-		case "selected_duration":
+		case "toggled_duration":
 			return {
 				...state,
 				duration: action.duration,
