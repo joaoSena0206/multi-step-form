@@ -8,6 +8,7 @@ import Button from "./components/Button";
 import InputError from "./components/InputError";
 import PlanSelection from "./steps/PlanSelection";
 import PlanOption from "./components/PlanOption";
+import PlanDurationToggle from "./components/PlanDurationToggle";
 
 export default MultiStepForm;
 export {
@@ -20,4 +21,5 @@ export {
 	InputError,
 	PlanSelection,
 	PlanOption,
+	PlanDurationToggle,
 };

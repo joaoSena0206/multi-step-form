@@ -1,4 +1,4 @@
-function PlanOption({ plan, isSelected, onPlanClick }) {
+function PlanOption({ plan, isSelected, onPlanClick, duration }) {
 	return (
 		<div
 			className={`flex items-center space-x-3 border-[1px] rounded-lg p-5 ${
@@ -18,7 +18,11 @@ function PlanOption({ plan, isSelected, onPlanClick }) {
 					{plan.name[0].toUpperCase() + plan.name.substring(1)}
 				</h2>
 
-				<p className="text-[#a1a1a9]">${plan.price.monthly}/mo</p>
+				<p className="text-[#a1a1a9]">
+					$
+					{plan.price[duration] +
+						(duration == "monthly" ? "/mo" : "/yr")}
+				</p>
 			</div>
 		</div>
 	);

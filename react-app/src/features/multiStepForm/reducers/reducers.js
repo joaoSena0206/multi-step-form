@@ -1,3 +1,19 @@
+function planReducer(state, action) {
+	switch (action.type) {
+		case "selected_plan":
+			return {
+				...state,
+				id: action.planId,
+			};
+
+		case "selected_duration":
+			return {
+				...state,
+				duration: action.duration,
+			};
+	}
+}
+
 function stepReducer(state, action) {
 	switch (action.type) {
 		case "proceeded_step":
@@ -8,4 +24,4 @@ function stepReducer(state, action) {
 	}
 }
 
-export { stepReducer };
+export { stepReducer, planReducer };

@@ -10,7 +10,7 @@ import {
 } from "./";
 
 import { steps, plans } from "./data/data";
-import { stepReducer } from "./reducers/reducers";
+import { stepReducer, planReducer } from "./reducers/reducers";
 
 import validatePersonalInfo from "./utils/validatePersonalInfo";
 
@@ -26,7 +26,10 @@ function MultiStepForm() {
 		email: "",
 		phone: "",
 	});
-	const [plan, setPlan] = useState(1);
+	const [plan, dispatchPlan] = useReducer(planReducer, {
+		id: 1,
+		duration: "monthly",
+	});
 	const selectedStep = steps.find((s) => s.id == step);
 
 	let renderStep;
@@ -90,7 +93,7 @@ function MultiStepForm() {
 				<PlanSelection
 					plans={plans}
 					selectedPlan={plan}
-					onPlanClick={(planId) => setPlan(planId)}
+					dispatch={dispatchPlan}
 				/>
 			);
 	}
