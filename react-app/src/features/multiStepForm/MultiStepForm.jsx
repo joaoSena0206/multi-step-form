@@ -35,6 +35,8 @@ function MultiStepForm() {
 		let name = e.target.name.toLowerCase();
 		let value = e.target.value;
 
+		setInputErrors({ ...inputErrors, [name]: "" });
+
 		switch (name) {
 			case "name":
 				value = value.replace(
