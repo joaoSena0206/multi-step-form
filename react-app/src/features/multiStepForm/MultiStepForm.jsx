@@ -1,8 +1,15 @@
 import { useReducer, useState } from "react";
 
-import { StepIndicator, Card, StepInfo, PersonalInfo, Button } from "./";
+import {
+	StepIndicator,
+	Card,
+	StepInfo,
+	PersonalInfo,
+	Button,
+	PlanSelection,
+} from "./";
 
-import { steps } from "./data/data";
+import { steps, plans } from "./data/data";
 import { stepReducer } from "./reducers/reducers";
 
 import validatePersonalInfo from "./utils/validatePersonalInfo";
@@ -40,6 +47,9 @@ function MultiStepForm() {
 				/>
 			);
 			break;
+
+		case 2:
+			renderStep = <PlanSelection plans={plans} />;
 	}
 
 	function handleInputChange(e) {

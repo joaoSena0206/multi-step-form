@@ -6,6 +6,8 @@ import PersonalInfo from "./steps/PersonalInfo";
 import Input from "./components/Input";
 import Button from "./components/Button";
 import InputError from "./components/InputError";
+import PlanSelection from "./steps/PlanSelection";
+import PlanOption from "./components/PlanOption";
 
 export default MultiStepForm;
 export {
@@ -16,4 +18,6 @@ export {
 	Input,
 	Button,
 	InputError,
+	PlanSelection,
+	PlanOption,
 };
