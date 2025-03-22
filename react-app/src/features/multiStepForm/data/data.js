@@ -1,3 +1,30 @@
+export const plans = [
+	{
+		id: 1,
+		name: "arcade",
+		price: {
+			monthly: 9,
+			yearly: 90,
+		},
+	},
+	{
+		id: 2,
+		name: "advanced",
+		price: {
+			monthly: 12,
+			yearly: 120,
+		},
+	},
+	{
+		id: 3,
+		name: "pro",
+		price: {
+			monthly: 15,
+			yearly: 150,
+		},
+	},
+];
+
 export const steps = [
 	{
 		id: 1,
