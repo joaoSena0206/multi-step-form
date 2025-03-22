@@ -1,6 +1,12 @@
 import Input from "../components/Input";
+import { useMask } from "@react-input/mask";
 
 function PersonalInfo({ data, onInputChange, errors }) {
+	const phoneRef = useMask({
+		mask: "(__) _____-____",
+		replacement: { _: /\d/ },
+	});
+
 	return (
 		<div className="mt-5 flex flex-col space-y-4">
 			<Input
@@ -28,6 +34,7 @@ function PersonalInfo({ data, onInputChange, errors }) {
 				label="Phone Number"
 				name="phone"
 				type="tel"
+				ref={phoneRef}
 				error={errors["phone"]}
 				placeholder="e.g. Stephen King"
 			/>

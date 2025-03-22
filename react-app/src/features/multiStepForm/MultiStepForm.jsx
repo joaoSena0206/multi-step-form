@@ -56,9 +56,6 @@ function MultiStepForm() {
 				);
 
 				break;
-
-			case "phone":
-				value = value.replace(/\D/g, "");
 		}
 
 		setPersonalInfo({ ...personalInfo, [name]: value });

@@ -8,6 +8,7 @@ function Input({
 	value,
 	label,
 	error,
+	ref,
 }) {
 	return (
 		<>
@@ -16,6 +17,7 @@ function Input({
 				className="flex flex-col text-[#4A5872] font-[500]">
 				{label}
 				<input
+					ref={ref}
 					value={value}
 					name={name}
 					onChange={onChange}
