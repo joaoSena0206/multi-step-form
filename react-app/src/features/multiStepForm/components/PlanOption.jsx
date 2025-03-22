@@ -1,6 +1,12 @@
-function PlanOption({ plan }) {
+function PlanOption({ plan, isSelected, onPlanClick }) {
 	return (
-		<div className="flex items-center space-x-3 border-[1px] border-[#DBDBDD] rounded-lg p-5">
+		<div
+			className={`flex items-center space-x-3 border-[1px] rounded-lg p-5 ${
+				isSelected
+					? "border-[#544C99] bg-[#F8F9FE]"
+					: "border-[#DBDBDD]"
+			}`}
+			onClick={onPlanClick}>
 			<img
 				className="w-[50px]"
 				src={`src/features/multiStepForm/icons/icon-${plan.name}.svg`}
