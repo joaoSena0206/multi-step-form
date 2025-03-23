@@ -14,6 +14,7 @@ import Conclusion from "./steps/Conclusion";
 import PlanSummary from "./components/PlanSummary";
 import AddonsSummary from "./components/AddonsSummary";
 import PriceSummary from "./components/PriceSummary";
+import Confirmation from "./steps/Confirmation";
 
 export default MultiStepForm;
 export {
@@ -32,4 +33,5 @@ export {
 	PlanSummary,
 	AddonsSummary,
 	PriceSummary,
+	Confirmation,
 };

@@ -9,6 +9,7 @@ import {
 	PlanSelection,
 	PickAddons,
 	Conclusion,
+	Confirmation,
 } from "./";
 
 import { steps, plans, addons } from "./data/data";
@@ -36,6 +37,7 @@ function MultiStepForm() {
 		addonReducer,
 		[]
 	);
+	const [hasFormSubmitted, setHasFormSubmitted] = useState(false);
 	const selectedStep = steps.find((s) => s.id == step);
 
 	let renderStep;
@@ -116,7 +118,9 @@ function MultiStepForm() {
 			break;
 
 		case 4:
-			renderStep = (
+			renderStep = hasFormSubmitted ? (
+				<Confirmation />
+			) : (
 				<Conclusion
 					plan={plans.find((p) => p.id == plan.id)}
 					addons={addons.filter((a) => selectedAddons.includes(a.id))}
@@ -138,33 +142,41 @@ function MultiStepForm() {
 
 				<div className="p-5">
 					<Card>
-						<StepInfo
-							title={selectedStep.title}
-							description={selectedStep.description}
-						/>
+						{!hasFormSubmitted && (
+							<StepInfo
+								title={selectedStep.title}
+								description={selectedStep.description}
+							/>
+						)}
 
 						{renderStep}
 					</Card>
 				</div>
 
-				<footer
-					className={`absolute bottom-0 p-5 bg-white w-full h-[90px] flex items-center ${btnAlignment}`}>
-					{!isStepAtStart && (
-						<p
-							className="text-[#A5A5AF] font-[550]"
-							onClick={() =>
-								dispatchStep({ type: "reversed_step" })
-							}>
-							Go Back
-						</p>
-					)}
+				{!hasFormSubmitted && (
+					<footer
+						className={`absolute bottom-0 p-5 bg-white w-full h-[90px] flex items-center ${btnAlignment}`}>
+						{!isStepAtStart && (
+							<p
+								className="text-[#A5A5AF] font-[550]"
+								onClick={() =>
+									dispatchStep({ type: "reversed_step" })
+								}>
+								Go Back
+							</p>
+						)}
 
-					<Button
-						isEnd={isStepAtEnd}
-						onClick={handleNextStepClick}
-						text={isStepAtEnd ? "Confirm" : "Next Step"}
-					/>
-				</footer>
+						<Button
+							isEnd={isStepAtEnd}
+							onClick={
+								isStepAtEnd
+									? () => setHasFormSubmitted(true)
+									: handleNextStepClick
+							}
+							text={isStepAtEnd ? "Confirm" : "Next Step"}
+						/>
+					</footer>
+				)}
 			</section>
 		</>
 	);
