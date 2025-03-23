@@ -7,9 +7,10 @@ import {
 	PersonalInfo,
 	Button,
 	PlanSelection,
+	PickAddons,
 } from "./";
 
-import { steps, plans } from "./data/data";
+import { steps, plans, addons } from "./data/data";
 import { stepReducer, planReducer } from "./reducers/reducers";
 
 import validatePersonalInfo from "./utils/validatePersonalInfo";
@@ -96,6 +97,13 @@ function MultiStepForm() {
 					dispatch={dispatchPlan}
 				/>
 			);
+			break;
+
+		case 3:
+			renderStep = (
+				<PickAddons addons={addons} duration={plan.duration} />
+			);
+			break;
 	}
 
 	return (

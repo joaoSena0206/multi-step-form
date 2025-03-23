@@ -9,6 +9,7 @@ import InputError from "./components/InputError";
 import PlanSelection from "./steps/PlanSelection";
 import PlanOption from "./components/PlanOption";
 import PlanDurationToggle from "./components/PlanDurationToggle";
+import PickAddons from "./steps/PickAddons";
 
 export default MultiStepForm;
 export {
@@ -22,4 +23,5 @@ export {
 	PlanSelection,
 	PlanOption,
 	PlanDurationToggle,
+	PickAddons,
 };
