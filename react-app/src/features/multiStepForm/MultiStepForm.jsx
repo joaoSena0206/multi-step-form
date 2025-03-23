@@ -8,6 +8,7 @@ import {
 	Button,
 	PlanSelection,
 	PickAddons,
+	Conclusion,
 } from "./";
 
 import { steps, plans, addons } from "./data/data";
@@ -113,6 +114,15 @@ function MultiStepForm() {
 				/>
 			);
 			break;
+
+		case 4:
+			renderStep = (
+				<Conclusion
+					plan={plans.find((p) => p.id == plan.id)}
+					addons={addons.filter((a) => selectedAddons.includes(a.id))}
+					duration={plan.duration}
+				/>
+			);
 	}
 
 	return (

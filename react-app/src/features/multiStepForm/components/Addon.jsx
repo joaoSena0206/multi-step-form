@@ -12,7 +12,10 @@ function Addon({ data, duration, isSelected, onClick }) {
 				}`}
 				onClick={onClick}>
 				{isSelected && (
-					<img className="w-[15px]" src="src/features/multiStepForm/icons/icon-checkmark.svg" />
+					<img
+						className="w-[15px]"
+						src="src/features/multiStepForm/icons/icon-checkmark.svg"
+					/>
 				)}
 			</div>
 

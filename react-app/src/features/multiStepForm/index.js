@@ -10,6 +10,10 @@ import PlanSelection from "./steps/PlanSelection";
 import PlanOption from "./components/PlanOption";
 import PlanDurationToggle from "./components/PlanDurationToggle";
 import PickAddons from "./steps/PickAddons";
+import Conclusion from "./steps/Conclusion";
+import PlanSummary from "./components/PlanSummary";
+import AddonsSummary from "./components/AddonsSummary";
+import PriceSummary from "./components/PriceSummary";
 
 export default MultiStepForm;
 export {
@@ -24,4 +28,8 @@ export {
 	PlanOption,
 	PlanDurationToggle,
 	PickAddons,
+	Conclusion,
+	PlanSummary,
+	AddonsSummary,
+	PriceSummary,
 };
