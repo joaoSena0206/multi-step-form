@@ -42,7 +42,7 @@ function MultiStepForm() {
 	let isStepAtEnd = step == steps.length;
 	let isStepAtStart = step == 1;
 	let btnAlignment = isStepAtEnd
-		? "justify-start"
+		? "justify-between"
 		: isStepAtStart
 		? "justify-end"
 		: "justify-between";
@@ -152,12 +152,12 @@ function MultiStepForm() {
 							Go Back
 						</p>
 					)}
-					{!isStepAtEnd && (
-						<Button
-							onClick={handleNextStepClick}
-							text="Next Step"
-						/>
-					)}
+
+					<Button
+						isEnd={isStepAtEnd}
+						onClick={handleNextStepClick}
+						text={isStepAtEnd ? "Confirm" : "Next Step"}
+					/>
 				</footer>
 			</section>
 		</>
