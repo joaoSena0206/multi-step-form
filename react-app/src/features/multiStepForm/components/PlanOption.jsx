@@ -23,6 +23,10 @@ function PlanOption({ plan, isSelected, onPlanClick, duration }) {
 					{plan.price[duration] +
 						(duration == "monthly" ? "/mo" : "/yr")}
 				</p>
+
+				{duration == "yearly" && (
+					<p className="text-[15px] text-[#002C5D]">2 months free</p>
+				)}
 			</div>
 		</div>
 	);
