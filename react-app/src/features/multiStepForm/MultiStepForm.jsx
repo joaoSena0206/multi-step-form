@@ -134,12 +134,13 @@ function MultiStepForm() {
 				<footer
 					className={`absolute bottom-0 p-5 bg-white w-full h-[90px] flex items-center ${btnAlignment}`}>
 					{!isStepAtStart && (
-						<Button
+						<p
+							className="text-[#A5A5AF] font-[550]"
 							onClick={() =>
 								dispatchStep({ type: "reversed_step" })
-							}
-							text="Previous Step"
-						/>
+							}>
+							Go Back
+						</p>
 					)}
 					{!isStepAtEnd && (
 						<Button
