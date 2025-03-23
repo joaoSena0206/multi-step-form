@@ -11,7 +11,7 @@ import {
 } from "./";
 
 import { steps, plans, addons } from "./data/data";
-import { stepReducer, planReducer } from "./reducers/reducers";
+import { stepReducer, planReducer, addonReducer } from "./reducers/reducers";
 
 import validatePersonalInfo from "./utils/validatePersonalInfo";
 
@@ -31,6 +31,10 @@ function MultiStepForm() {
 		id: 1,
 		duration: "monthly",
 	});
+	const [selectedAddons, dispatchSelectedAddons] = useReducer(
+		addonReducer,
+		[]
+	);
 	const selectedStep = steps.find((s) => s.id == step);
 
 	let renderStep;
@@ -101,7 +105,12 @@ function MultiStepForm() {
 
 		case 3:
 			renderStep = (
-				<PickAddons addons={addons} duration={plan.duration} />
+				<PickAddons
+					addons={addons}
+					duration={plan.duration}
+					selectedAddons={selectedAddons}
+					dispatch={dispatchSelectedAddons}
+				/>
 			);
 			break;
 	}
