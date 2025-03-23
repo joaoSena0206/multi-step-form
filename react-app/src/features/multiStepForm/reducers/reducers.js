@@ -1,3 +1,13 @@
+function addonReducer(state, action) {
+	switch (action.type) {
+		case "added_addon":
+			return [...state, action.id];
+
+		case "removed_addon":
+			return state.filter((id) => id != action.id);
+	}
+}
+
 function planReducer(state, action) {
 	switch (action.type) {
 		case "selected_plan":
@@ -24,4 +34,4 @@ function stepReducer(state, action) {
 	}
 }
 
-export { stepReducer, planReducer };
+export { stepReducer, planReducer, addonReducer };
