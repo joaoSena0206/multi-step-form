@@ -31,6 +31,9 @@ function stepReducer(state, action) {
 
 		case "reversed_step":
 			return state - 1;
+
+		case "changed_step":
+			return action.step;
 	}
 }
 

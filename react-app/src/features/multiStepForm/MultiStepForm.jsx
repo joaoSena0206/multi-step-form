@@ -121,6 +121,12 @@ function MultiStepForm() {
 					plan={plans.find((p) => p.id == plan.id)}
 					addons={addons.filter((a) => selectedAddons.includes(a.id))}
 					duration={plan.duration}
+					onChangePlan={() =>
+						dispatchStep({
+							type: "changed_step",
+							step: 2,
+						})
+					}
 				/>
 			);
 	}
