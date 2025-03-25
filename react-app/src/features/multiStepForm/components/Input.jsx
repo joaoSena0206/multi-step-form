@@ -23,7 +23,7 @@ function Input({
 					onChange={onChange}
 					className={`border-[1px] ${
 						error == "" ? "border-[#DBDBDD]" : "border-[#F72B2A]"
-					} focus:outline-0 px-3 py-2`}
+					} focus:outline-0 px-3 py-2 rounded-md`}
 					type={type}
 					id={name}
 					placeholder={placeholder}

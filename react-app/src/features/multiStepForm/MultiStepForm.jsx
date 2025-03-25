@@ -135,12 +135,14 @@ function MultiStepForm() {
 			);
 	}
 
+	let windowWidth = window.innerWidth;
+
 	return (
 		<>
-			<section className="bg-[#EDF4FE] h-screen">
+			<section className="bg-[#EDF4FE] h-screen lg:flex lg:p-5 lg:bg-white lg:space-x-0">
 				<StepIndicator selectedStep={step} steps={steps} />
 
-				<div className="p-5">
+				<div className="p-5 lg:p-0 lg:w-full lg:flex lg:justify-center lg:items-center">
 					<Card>
 						{!hasFormSubmitted && (
 							<StepInfo
@@ -150,10 +152,37 @@ function MultiStepForm() {
 						)}
 
 						{renderStep}
+
+						{windowWidth >= 1024 && !hasFormSubmitted && (
+							<div
+								className={`mt-10 flex items-bottom ${btnAlignment}`}>
+								{!isStepAtStart && (
+									<p
+										className="text-[#A5A5AF] font-[550]"
+										onClick={() =>
+											dispatchStep({
+												type: "reversed_step",
+											})
+										}>
+										Go Back
+									</p>
+								)}
+
+								<Button
+									isEnd={isStepAtEnd}
+									onClick={
+										isStepAtEnd
+											? () => setHasFormSubmitted(true)
+											: handleNextStepClick
+									}
+									text={isStepAtEnd ? "Confirm" : "Next Step"}
+								/>
+							</div>
+						)}
 					</Card>
 				</div>
 
-				{!hasFormSubmitted && (
+				{windowWidth < 1024 && !hasFormSubmitted && (
 					<footer
 						className={`absolute bottom-0 p-5 bg-white w-full h-[90px] flex items-center ${btnAlignment}`}>
 						{!isStepAtStart && (
