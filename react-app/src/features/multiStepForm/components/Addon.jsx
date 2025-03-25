@@ -19,14 +19,14 @@ function Addon({ data, duration, isSelected, onClick }) {
 				)}
 			</div>
 
-			<div className="shrink-0">
+			<div className="flex-1 min-w-0">
 				<h2 className="text-[#002C5D] font-[550]">{data.name}</h2>
 				<p className="text-[#a6a6ae] font-[550] text-[14px]">
 					{data.description}
 				</p>
 			</div>
 
-			<div className="w-full flex justify-end">
+			<div className="flex justify-end min-w-[60px] text-right">
 				<p className="text-[#544C99] shrink-0">
 					+$
 					{data.price[duration] +
