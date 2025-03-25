@@ -8,10 +8,10 @@ Um formulário com 5 etapas, feito com o intuito de praticar React, e principalm
 * [Licença](#Licença)
 
 ## Funcionalidades
-✅ Formulário dividido em 4 etapas.
-✅ Persistência de dados entre as etapas por meio de states.
-✅ Validação dos campos.
-✅ Resumo com todas as escolhas do usuário, junto com o preço total.
+- ✅ Formulário dividido em 4 etapas.
+- ✅ Persistência de dados entre as etapas por meio de states.
+- ✅ Validação dos campos.
+- ✅ Resumo com todas as escolhas do usuário, junto com o preço total.
 
 ## Tecnologias Utilizadas
 - Vite
